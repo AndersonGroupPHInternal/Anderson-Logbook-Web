@@ -15,7 +15,7 @@
 
 
   <center>
-  <form action="/logbook/adminpage/adminpageindex.php" style="max-width:500px;">
+  <form action="/adminpage/adminpageindex.php" style="max-width:500px;">
     
     <div class="input-container">
       <i class="fa fa-user icon"></i>

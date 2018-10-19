@@ -18,7 +18,7 @@
   <!-- NAV BAR -->
   <div class="navbar fixed-top navbar-toggleable-md navbar-default">
     <div class="container">
-      <a class="navbar-brand" href="/logbook/adminpage/adminpageindex.php">
+      <a class="navbar-brand" href="/adminpage/adminpageindex.php">
         <i class="fa fa-home" aria-hidden="true"></i>
         Home
       </a>
@@ -27,22 +27,22 @@
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li>
-            <a class="navbar-link" href="/logbook/adminpage/createEmployee.php">
+            <a class="navbar-link" href="/adminpage/createEmployee.php">
               <i class="fa fa-user icon" aria-hidden="true"></i> Employee
             </a>
           </li>
           <li>
-            <a class="navbar-link"  href="/logbook/adminpage/createDepartment.php">
+            <a class="navbar-link"  href="/adminpage/createDepartment.php">
               <i class="fa fa-briefcase" aria-hidden="true"></i> Department
             </a>                    
           </li>                
           <li>
-          <a class="navbar-link" href="/logbook/adminpage/createCompany.php">
+          <a class="navbar-link" href="/adminpage/createCompany.php">
               <i class="fa fa-users" aria-hidden="true"></i> Company
             </a>                    
           </li>
           <li>
-          <a class="navbar-link"  href="/logbook/adminpage/createJobTitle.php">
+          <a class="navbar-link"  href="/adminpage/createJobTitle.php">
               <i class="fa fa-pencil-square" aria-hidden="true"></i> Job Title
             </a>                    
           </li>
