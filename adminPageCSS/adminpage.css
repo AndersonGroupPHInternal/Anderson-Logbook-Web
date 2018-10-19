@@ -1,0 +1,48 @@
+body {
+	/*The below background is just to add some color, you can set this to anything*/
+	/*background: url(../images/adminBG.jpg) no-repeat center center fixed;*/
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	font-family: Arial, Helvetica, sans-serif;
+	box-sizing: border-box;
+	margin: 0; 
+	padding: 0;
+	background-color: #f8f8f8;
+}
+
+.footer {
+	/*position: fixed;*/
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	color: white;
+	background-color: #f8f8f8;
+	/*    text-align: center;*/
+}
+.navbar {
+	border-bottom-color: #061D7A;
+	border-width: 0 1px 4px 1px;
+	background-color: #f8f8f8;
+	width: 100%;
+
+}
+
+.logo {
+	right: 1px;
+}
+
+li {
+	margin-left: 50px;
+}
+li a:hover, .navbar-brand:hover {
+	color: #2b358a !important;
+	font-weight: bold;
+}
+
+.navDiv {
+	height: 90px;
+
+}
+

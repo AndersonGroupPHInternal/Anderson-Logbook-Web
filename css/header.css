@@ -1,0 +1,75 @@
+.hLogo{
+	margin: 15pt 0pt 0pt 0pt;
+	height: 80pt;
+}
+.header{
+	margin:-13pt 0pt -7pt 0pt;
+	width: 100%;
+	background-color: #f8f8f8;
+	height: 100pt;
+	border: 1 px solid;
+
+}
+
+.horizontal_Rule{
+	width: 100%;
+	background-color: #2b358a;
+	height: 5pt;
+
+}
+
+body{ 
+  padding: 0;
+  margin: 0
+}
+
+.footer{
+	position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    font-size:11pt;
+    background-color: #f8f8f8;
+    text-align: left;
+    color:#808080;
+
+}
+
+.navText{
+	font-size:20pt; 
+	color: #808080;
+	display:inline-block;
+}
+
+.navText:hover {
+    font-size: 24pt;
+    -webkit-transition: font-size .2s;
+}
+
+.homeLogo{
+	vertical-align:middle;
+	display: inline-block;
+	height: 90%;
+	width: 90%;
+	margin-top:10pt;
+	margin-left:40pt;
+
+}
+.homerLogo{
+	background-color: #e9ecef;
+	margin-top:100pt;
+	padding-bottom: 70pt;
+	width: 100%;
+	height: 100%;
+
+}
+
+}
+.aboutLogo{
+	background-color: #e9ecef;
+	margin-top:100pt;
+	padding-bottom: 70pt;
+	width: 100%;
+	height: 100%;
+
+}

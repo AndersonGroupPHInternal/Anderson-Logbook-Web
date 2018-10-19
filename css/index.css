@@ -1,0 +1,29 @@
+.navbar {
+            border-bottom-color: #2b358a;
+            border-width: 0 1px 4px 1px;
+        }
+
+        .logo {
+            right: 1px;
+        }
+
+        li {
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+
+            li a:hover, .navbar-brand:hover {
+                color: #2b358a !important;
+                font-weight: bold;
+            }
+            #logo {
+                margin-right: 10px;
+            }
+
+        .navDiv {
+            height: 95px;
+        }
+
+        .container {
+        width: 100% !important;
+    }
