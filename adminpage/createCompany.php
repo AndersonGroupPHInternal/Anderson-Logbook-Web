@@ -64,10 +64,7 @@
 
   <!-- END OF NAV BAR -->
 
-  <!-- CREATE BUTTOM -->
-    <a role="button" class="btn btn-primary" href="#"> CREATE </a>
-  <!-- END OF  CREATE BUTTON -->
-  <!-- TABLE  -->
+<!-- TABLE  -->
   <div class="row">
     <div class="col-sm-12 table-responsive">
       <table class="table table-hover table-sm table-bordered">
@@ -77,22 +74,31 @@
             <th class="text-center">Company ID</th>
             <th class="text-center">Company Name</th>
             <th class="text-center">Created Date</th>
-            <th class="t">Action</th>
-            <!-- <th class="text-center">First Name</th>
-            <th class="text-center">Middle Name</th> -->
-
-            <!-- <th class="text-center">Company</th>
-            <th class="text-center">Department</th>
-
-            <th class="text-center">Job Title</th>
-            <th class="text-center">Date Started</th>
-            <th class="text-center">Date Hired</th> -->
+            <th class="text-center" style="width:145pt;">Action</th>
           </tr>
         </thead>
-        <tbody id="myCompanyTable">
-        </tbody>
+        <!-- ** REMOVE THIS COMMENT IF YOU WANT TO SHOW THE DATA'S WITHOUT RELOADING THE PAGE **
+          <tbody id="myCompanyTable">
+        </tbody> -->
 
-  
+          <tbody>
+							<?php
+							include('../connection/connection.php');
+							$sql = "SELECT * FROM crm_company ORDER BY CompanyId";
+							$result = $con->query($sql);
+							if ($result->num_rows > 0){
+								while($row = $result->fetch_assoc()) {?>
+								<tr>
+									<td><?php echo $row['CompanyId'];?></td>
+									<td><?php echo $row['CompanyName'];?></td>
+									<td><?php echo $row['CreatedDate'];?></td>
+									<td><?php echo '<button class="delete_btn btn btn-danger btn-sm" id="deleter_btn" value="' . $row['CompanyId']. '" ><span class="fa fa-trash"></span> DELETE </button>'; ?></td>
+								</tr>
+							<?php
+								}
+									}
+								$con->close();?>
+						</tbody>
         <!-- END OF TABLE -->
 
         <!-- MODAL START -->
@@ -106,13 +112,6 @@
 <div class="modal fade" id="myModal">
   <div class="modal-dialog modal-md">
     <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Add Company</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
       <!-- Modal body -->
       <div class="modal-body">
         <form action="#">
@@ -123,7 +122,6 @@
           <button type="button" class="btn btn-primary" id="btn_addCompany">Submit</button>
         </form>
       </div>
-
       <!-- Modal footer -->
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -141,11 +139,25 @@
     $(document).ready(function(){
       console.log('nc');
       $('#btn_addCompany').click(function(){
-        console.log('gumagana');
+        console.log('submit clicked');
         var companyName = $('#txtCompany').val();
-        add_company(companyName);
+        if(companyName == ""){
+          alert("Please input text in the field first");
+        }
+        else{
+          add_company(companyName);
+        }
+        
       });
-      getCompanyList();
+
+      $('.delete_btn').click(function(){
+        console.log('btn delete clicked');
+        var CompanyId = $(this).val();
+        //alert(CompanyId);
+        delete_company(CompanyId);
+        
+      });
+      //getCompanyList();
     });
 
     function add_company(companyName){
@@ -159,36 +171,49 @@
             myVar = JSON.parse(response);
             // console.log(response);
             alert(myVar['message']);
-            getCompanyList();
+            //getCompanyList();
+            window.location.reload();
             $("modal").modal("hide");
           }
         })
     }
 
-    function delete_company(companyId){
-      $.ajax({
-
-      })
-    }
-
-    function getCompanyList(){
+    function delete_company(CompanyId){
         $.ajax({
-          url: "api/getCompanyList.php",
-          type: "GET",
+          url: "api/deleteCompany.php",
+          type: "POST",
+          data: {
+            CompanyId:CompanyId
+          },
           success: function(response){
-            $("#myCompanyTable").html("");
             myVar = JSON.parse(response);
-            var output = "";
-            console.log(myVar);
-            //alert(myVar['message']);
-            for(var i=0; i <= myVar.length-1; i++){
-              // console.log(myVar[i]);
-              
-              output += "<tr><td>"+myVar[i]["CompanyId"]+"</td>" + "<td>"+myVar[i]["CompanyName"]+"</td>" + "<td>"+myVar[i]["CreatedDate"]+"</td>"+"<td>"+"<a id='deleteCompany' class='btn btn-danger fa fa-trash-o'> Delete</a>"+"</td></tr>"
-            }
-            $("#myCompanyTable").append(output);
+            // console.log(response);
+            alert(myVar['message']);
+            window.location.reload();
           }
         })
     }
+
+    //  ** NOTE IF YOU WANT TO SHOW LIST WITHOUT RELOADING THE PAGE USE THIS CODES BELOW **
+    // function getCompanyList(){
+    //     $.ajax({
+    //       url: "api/getCompanyList.php",
+    //       type: "GET",
+    //       success: function(response){
+    //         $("#myCompanyTable").html("");
+    //         myVar = JSON.parse(response);
+    //         var output = "";
+    //         console.log(myVar);
+    //         //alert(myVar['message']);
+    //         for(var i=0; i <= myVar.length-1; i++){
+    //           // console.log(myVar[i]);
+              
+    //           output += "<tr><td>"+myVar[i]["CompanyId"]+"</td>" + "<td>"+myVar[i]["CompanyName"]+"</td>" + "<td>"+myVar[i]["CreatedDate"]+"</td>"+"<td>"+"<a id='deleteCompany' class='btn btn-danger fa fa-trash-o'> Delete</a> <a id='deleteCompany' class='btn btn-primary fa fa-pencil-square-o'> Edit </a>"+"</td></tr>"
+    //         }
+    //         $("#myCompanyTable").append(output);
+    //       }
+    //     })
+    // }
+
 </script>
       </html>
