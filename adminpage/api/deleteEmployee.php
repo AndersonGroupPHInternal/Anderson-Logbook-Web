@@ -1,16 +1,16 @@
 <?php
     include('../../connection/connection.php');
     $response = array();
-    $CompanyId = $_POST['CompanyId'];
-    $query = "DELETE FROM `crm_company` WHERE `CompanyId` = ('$CompanyId') ";
+    $employeeId = $_POST['employeeId'];
+    $query = "DELETE FROM `crm_employee` WHERE `EmployeeId` = ('$employeeId') ";
     
     if(mysqli_query($con, $query)){
         $response['error'] = false;
-        $response['message'] = "Company Deleted";
+        $response['message'] = "Employee Deleted";
     }
     else{
         $response['error'] = true;
-        $response['message'] = "Company Not Deleted";
+        $response['message'] = "Employee Not Deleted";
     }
 
 
