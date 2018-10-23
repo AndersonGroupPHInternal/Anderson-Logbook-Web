@@ -329,6 +329,7 @@
           },
           success: function(response){
             $(".department_select").html("");
+            $(".department_select").append("<option selected disabled>CHOOSE A DEPARTMENT</option>");
             var output = "";
             var myVar = JSON.parse(response);
             for(var i=0; i <= myVar.length-1; i++){
@@ -350,6 +351,7 @@
           },
           success: function(response){
             $(".job_select").html("");
+            $(".job_select").append("<option selected disabled>CHOOSE A JOB NAME</option>");
             var output = "";
             var myVar = JSON.parse(response);
             for(var i=0; i <= myVar.length-1; i++){
